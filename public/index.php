@@ -1,4 +1,3 @@
 <?php  
-
-echo "Hello World";
-require "../views/tasks.views.php";
+require "../fn.php";
+require "../core/router.php";

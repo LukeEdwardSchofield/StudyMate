@@ -13,10 +13,10 @@
         <a href="/projects">Projects</a>
         <a href="/reminders">Reminders</a>
     </nav>
-    <h1>Tasks</h1>
+    <h1>Reminders</h1>
 
-    <form action="../controllers/tasks.php">
-        <input type="text" name="task-input" placeholder="Input a task...">
+    <form action="../controllers/reminders.php">
+        <input type="text" name="reminder-input" placeholder="Input a reminder...">
         <button type="submit">Submit</button>
     </form>
 </body>

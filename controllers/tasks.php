@@ -1,3 +1,3 @@
 <?php  
 
-require "../controllers/tasks.php";
+require "../views/tasks.views.php";
