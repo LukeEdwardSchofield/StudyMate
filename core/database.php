@@ -1,31 +1,37 @@
 <?php  
-
-/*
-If a class has a namespace, 
-every object that are instantiated inside that class 
-assumes the namespace of that class
-*/
-namespace Core;
-
-//just use the PDO to not include the namespace
-use PDO;
-class Database
+//Connect to the database, and execute a query
+class Database 
 {
-    public $connection;
+   public $connection; //$pdo
+  
+   //So that the connection to the database is created only one time when an instance of the database is called
+    public function __construct($config, $username = "root", $password = "")
+    {
+        //builds or parses the associative array database config into a dsn connection
+                                                          //Separator
+        $dsn = "mysql:" . http_build_query($config, '', ';');
 
-    public function __construct($config, $username = "root", $password = ""){
 
-        $dsn = "mysql: " . http_build_query($config, '', ';');
-
-        $this->connection = new PDO($dsn, $username, $password, 
-        [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+        //PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC 
+            //So that the default fetch mode is an associative array
+       $this->connection = new PDO($dsn, $username, $password, [
+       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+       ]);
     }
 
-    public function query($query, $params = []){
+    //$params for not inlining a input to the query
+    public function query($query, $params = [])
+    {
+        
 
+        //prepare statement
         $statement = $this->connection->prepare($query);
-        $statement->execute($params);
+
+        //execute statement
+        $statement ->execute($params);
 
         return $statement;
     }
 }
+
+

@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+    <h1>Welcome to StudyMate</h1>
 
-    <h1>This page does not exist</h1>
-    <a href="/">Return to home</a>
+    <a href="/tasks">Tasks</a>
+    <a href="/projects">Projects</a>
+    <a href="/reminders">Reminders</a>
 </body>
 </html>

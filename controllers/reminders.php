@@ -1,5 +1,3 @@
-<?php 
+<?php  
 
-view("reminders.views.php");
-
-?>
+require "../views/reminders.views.php";

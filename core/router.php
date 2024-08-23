@@ -1,25 +1,27 @@
-<?php 
-//parse url to only path so that any query does not get processed
-$routes = require base_path("routes.php");
+<?php  
 
-$uri = parse_url($_SERVER["REQUEST_URI"])["path"];
 
-route($uri, $routes);
+//parse the url so that any query(after the ?) does not get process
+$uri = parse_url($_SERVER['REQUEST_URI'])["path"];
 
-function route($uri, $routes){
-    if(array_key_exists($uri, $routes)){
+$routes = require "../routes.php";
+
+routeToController($uri, $routes);
+
+
+function routeToController($uri, $routes)
+{
+    if(array_key_exists($uri, $routes))
+      {
         require $routes[$uri];
-    } else {
-            abort(404);
-        }
+      }
+    else
+      {
+         abort();
+      }
 }
 
-function abort($statusCode = 404){
-        http_response_code($statusCode);
+function abort($code = 404){
 
-        require base_path("./views/{$statusCode}.views.php");
-
-        die();
+    require "../views/{$code}.views.php";
 }
-
-?>

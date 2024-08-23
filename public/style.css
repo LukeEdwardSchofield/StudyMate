@@ -1,15 +1,7 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+h1 {
+    color: blue;
 }
 
-nav {
-    width: 30vw;
-    height: 100vh;
-    border: 1px solid black;
-}
-
-li {
-    color: pink;
+.tasks{
+    color: brown;
 }
