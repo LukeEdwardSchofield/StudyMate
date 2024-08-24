@@ -19,5 +19,13 @@
         <input type="text" name="reminder-input" placeholder="Input a reminder...">
         <button type="submit">Submit</button>
     </form>
+
+    <div id="reminders">
+        <?php foreach($reminders as $reminder) :?>
+            <li class="reminder">
+                <?php echo $reminder["reminder"]; ?>
+            </li>
+        <?php endforeach; ?>
+    </div>
 </body>
 </html>

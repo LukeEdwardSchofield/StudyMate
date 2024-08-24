@@ -19,5 +19,13 @@
         <input type="text" name="task-input" placeholder="Input a task...">
         <button type="submit">Submit</button>
     </form>
+
+    <div id="tasks">
+        <?php foreach($tasks as $task) : ?>
+            <li id="task">
+                <?php echo htmlspecialchars($task["task"]); ?>
+            </li>
+        <?php endforeach; ?>
+    </div>
 </body>
 </html>

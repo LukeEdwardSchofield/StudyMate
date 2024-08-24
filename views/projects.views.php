@@ -19,5 +19,13 @@
         <input type="text" name="project-input" placeholder="Input a project...">
         <button type="submit">Submit</button>
     </form>
+
+    <div id="projects">
+        <?php foreach($projects as $project) : ?>
+            <li class="task">
+                <?php echo $project["project"]; ?>
+            </li>
+        <?php endforeach; ?>
+    </div>
 </body>
 </html>
