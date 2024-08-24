@@ -15,15 +15,21 @@
     </nav>
     <h1>Projects</h1>
 
-    <form action="../controllers/projects.php">
+    <form action="/projects" method="POST">
         <input type="text" name="project-input" placeholder="Input a project...">
         <button type="submit">Submit</button>
     </form>
 
+    <div id="errors">
+        <?php foreach($errors as $error) : ?>
+            <?php echo $error; ?>
+        <?php endforeach; ?>
+    </div>
+
     <div id="projects">
         <?php foreach($projects as $project) : ?>
             <li class="task">
-                <?php echo $project["project"]; ?>
+                <?php echo htmlspecialchars($project["project"]); ?>
             </li>
         <?php endforeach; ?>
     </div>

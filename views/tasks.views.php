@@ -15,10 +15,16 @@
     </nav>
     <h1>Tasks</h1>
 
-    <form action="../controllers/tasks.php" method="POST">
+    <form action="/tasks" method="POST">
         <input type="text" name="task-input" placeholder="Input a task...">
         <button type="submit">Submit</button>
     </form>
+
+    <div id="errors">
+        <?php foreach($errors as $error) : ?>
+            <?php echo $error; ?>
+        <?php endforeach; ?>
+    </div>
 
     <div id="tasks">
         <?php foreach($tasks as $task) : ?>
