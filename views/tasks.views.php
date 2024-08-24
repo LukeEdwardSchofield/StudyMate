@@ -15,7 +15,7 @@
     </nav>
     <h1>Tasks</h1>
 
-    <form action="../controllers/tasks.php">
+    <form action="../controllers/tasks.php" method="POST">
         <input type="text" name="task-input" placeholder="Input a task...">
         <button type="submit">Submit</button>
     </form>
