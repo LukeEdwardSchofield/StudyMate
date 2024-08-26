@@ -1,6 +1,7 @@
 <?php  
 $config = require "../config.php";
 
+require "../core/validator.php";
 require "../core/database.php";
 
 $database = new Database($config["database"]);
@@ -13,14 +14,11 @@ $errors = [];
                      
 if($_SERVER['REQUEST_METHOD'] === "POST")
   {
+    $validator = new Validator();
 
-    if(strlen($_POST["task-input"]) === 0)
+    if(!Validator::inputValid($_POST["task-input"]))
     {
-        $errors["task"] = "You must input a task";
-    }
-
-    if(strlen($_POST["task-input"]) > 50){
-        $errors["task"] = "Your task input must not exceed 50 characters";
+      $errors["task"] = "A task containing no more than 50 characters is required";
     }
 
 
