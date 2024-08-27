@@ -30,7 +30,11 @@
         <?php foreach($tasks as $task) : ?>
             <li id="task">
                 <?php echo htmlspecialchars($task["task"]); ?>
+                <form method="/tasks" action="POST">
+                    <button class="delete">Delete</button>
+                </form>
             </li>
+            
         <?php endforeach; ?>
     </div>
 </body>

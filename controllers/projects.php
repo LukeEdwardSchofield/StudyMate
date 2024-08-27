@@ -1,8 +1,8 @@
 <?php  
+//Requiring the class, not the file
+use Core\Database;
+
 $config = require "../config.php";
-
-require "../core/database.php";
-
 $database = new Database($config["database"]);
 
 $currentUserId = 1;
