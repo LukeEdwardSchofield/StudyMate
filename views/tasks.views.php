@@ -27,14 +27,21 @@
     </div>
 
     <div id="tasks">
+
         <?php foreach($tasks as $task) : ?>
-            <li id="task">
-                <?php echo htmlspecialchars($task["task"]); ?>
-                <form method="/tasks" action="POST">
-                    <button class="delete">Delete</button>
-                </form>
-            </li>
-            
+
+            <form action="/tasks" method="POST">
+                <input type="hidden" name="task-id-edit" value="<?= $task["id"] ?>">
+                <input type="text" id="task" name="task-edit-input" value="<?php echo htmlspecialchars($task["task"]); ?>">
+                <button class="edit" type="submit">Edit</button>
+                </input>
+            </form>
+
+            <form action="/tasks" method="POST">
+                <input type="hidden" name="task-id-delete" value="<?= $task["id"] ?>">
+                <button class="delete" type="submit">Delete</button>
+            </form>
+
         <?php endforeach; ?>
     </div>
 </body>

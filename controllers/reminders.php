@@ -1,6 +1,7 @@
 <?php  
 //Requiring the class, not the file
 use Core\Database;
+use Core\Validator;
 
 $config = require "../config.php";
 $database = new Database($config["database"]);
@@ -13,24 +14,37 @@ $reminders = $database->query("SELECT * FROM reminders WHERE user_id = :current_
 
 if($_SERVER['REQUEST_METHOD'] === "POST")
 {
-    if(strlen($_POST["reminder-input"]) === 0)
+    if(isset($_POST["reminder-input"]))
     {
-        $errors["reminder"] = "You must input a reminder"; 
-    }
+        if(!Validator::inputValid($_POST["reminder-input"]))
+        {
+            $errors["reminder"] = "A reminder containing no more than 50 characters is required";
+        }
 
-    if(strlen($_POST["reminder-input"]) > 50)
-    {
-       $errors["reminder"] = "Your reminder input must not exceed 50 characters";  
-    }
-
-    if(empty($errors)){
-        $reminder = $database->query("INSERT INTO reminders(reminder, user_id) 
+        if(empty($errors))
+        {
+            $reminder = $database->query("INSERT INTO reminders(reminder, user_id) 
                                   VALUES(:reminder, :current_user_id)",
                                  [
                                   "reminder" => $_POST["reminder-input"],
                                   "current_user_id" => $currentUserId   
                                  ])->fetchAll();
+
+            header("Location: /reminders");
+            exit();
+        }
     }
-    
+
+   if(isset($_POST["reminder-id"]))
+   {
+    $database->query("DELETE FROM reminders WHERE id = :id", 
+                    ["id" => $_POST["reminder-id"]]);;
+
+    header("Location: /reminders");
+    exit();
+   }
+        
 }
+    
+
 require "../views/reminders.views.php";

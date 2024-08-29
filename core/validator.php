@@ -1,10 +1,13 @@
 <?php  
+namespace Core;
+
 {
     class Validator{
 
         public static function  inputValid($value, $min = 1, $max = INF)
         {
-            $value = trim($value);
+            //Ensure $value is a string before calling trim
+            $value = is_string($value) ? trim($value) : "";
 
             return strlen($value) >= $min && strlen($value) <= $max;
         }

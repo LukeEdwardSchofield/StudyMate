@@ -30,6 +30,11 @@
         <?php foreach($reminders as $reminder) :?>
             <li class="reminder">
                 <?php echo htmlspecialchars($reminder["reminder"]); ?>
+
+                <form action="/reminders" method="POST">
+                    <input type="hidden" name="reminder-id" value="<?= $reminder["id"]?>">
+                    <button type="submit">Delete</button>
+                </form>
             </li>
         <?php endforeach; ?>
     </div>

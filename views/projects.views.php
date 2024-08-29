@@ -30,6 +30,11 @@
         <?php foreach($projects as $project) : ?>
             <li class="task">
                 <?php echo htmlspecialchars($project["project"]); ?>
+
+                <form action="/projects" method="POST">
+                    <input type="hidden" name="project-id" value="<?= $project["id"]?>">   
+                    <button class="delete" type="submit">Delete</button> 
+                </form>
             </li>
         <?php endforeach; ?>
     </div>
