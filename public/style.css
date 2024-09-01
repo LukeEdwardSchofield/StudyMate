@@ -1,3 +1,238 @@
-h1{
-    color: blue;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 18vh;
+  background-color: rgb(240, 225, 206);
+  position: fixed;
+}
+
+header img {
+  width: 30%;
+  height: 84%;
+  object-fit: contain;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+}
+
+nav {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  height: 100vh;
+  background-color: rgb(240, 225, 206);
+}
+
+nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5vh;
+  width: 16vw;
+  height: 8vh;
+  border-radius: 30px;
+  text-align: center;
+  font-family: "Josefin Slab";
+  font-size: 3vw;
+  font-weight: 900;
+  text-decoration: none;
+  color: black;
+}
+
+nav a:nth-child(1) {
+  background-color: #a8bbf4;
+  margin-top: 20vh;
+}
+
+nav a:nth-child(2) {
+  background-color: #44b680;
+}
+
+nav a:nth-child(3) {
+  background-color: #ff896b;
+  font-size: 2.5vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  margin-top: 18vh;
+  margin-left: 20vw;
+  width: 100vw;
+}
+
+.sort {
+  width: 70vw;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+}
+
+.sort input {
+  border-radius: 10px;
+  padding: 5px;
+  border: 3px solid rgb(240, 225, 206);
+  width: 50vw;
+  margin-left: 5vw;
+}
+
+.sort button {
+  height: 4.3vh;
+  width: 4.3vw;
+  margin-bottom: 2vh;
+  border: 2px solid gray;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1000px;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 70px;
+  padding: 2vh;
+  width: 60vw;
+  height: 15vh;
+}
+
+#task-form {
+  border-top: 8px solid rgb(223, 224, 246);
+  border-right: 8px solid rgb(162, 168, 255);
+  border-left: 8px solid rgb(162, 168, 255);
+  border-bottom: 8px solid rgb(124, 133, 255);
+  background-color: #a8bbf4;
+}
+
+#project-form {
+  border-top: 8px solid rgb(150, 243, 150);
+  border-right: 8px solid rgb(51, 218, 51);
+  border-left: 8px solid rgb(51, 218, 51);
+  border-bottom: 8px solid rgb(12, 142, 12);
+  background-color: #44b680;
+}
+
+#reminder-form {
+  border-top: 8px solid #ffb9b9;
+  border-right: 8px solid rgb(250, 103, 103);
+  border-left: 8px solid rgb(250, 103, 103);
+  border-bottom: 8px solid rgb(213, 49, 49);
+  background-color: #e9927c;
+}
+
+.input-container{
+    margin-bottom: 30px;
+}
+
+.input {
+  border: none;
+  width: 100%;
+  margin-bottom: 1vh;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.input-deadline {
+  border: none;
+  width: 50%;
+  height: 4vh;
+  padding: 1.4vh;
+  margin-bottom: 2vh;
+  border-radius: 6px;
+}
+
+#task-deadline{
+    background-color: #a8bbf4;
+}
+
+#project-deadline{
+  background-color: #44b680;
+}
+
+#reminder-deadline{
+  background-color: #e9927c;
+}
+
+/*Submit button*/
+#task-form button,
+#reminder-form button,
+#project-form button {
+  border: none;
+  border-radius: 5px;
+  background-color: #d6ddf2;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 3px;
+}
+
+#tasks,
+#projects,
+#reminders {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: auto;
+  height: auto;
+  margin-bottom: 40px;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 0px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  width: 60vw;
+}
+
+.text {
+  width: 55vw;
+  height: auto;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: rgb(240, 225, 206);
+  margin-bottom: 10px;
+  border: none;
+}
+
+.deadline {
+  display: block;
+  width: 15vw;
+  margin-right: 300px;
+  border: none
+}
+
+.task {
+  background-color: #a8bbf4;
+  border-top: 8px solid rgb(212, 214, 252);
+  border-right: 8px solid rgb(162, 168, 255);
+  border-left: 8px solid rgb(162, 168, 255);
+  border-bottom: 8px solid rgb(124, 133, 255);
+}
+
+.project {
+  border-top: 8px solid rgb(150, 243, 150);
+  border-right: 8px solid rgb(51, 218, 51);
+  border-left: 8px solid rgb(51, 218, 51);
+  border-bottom: 8px solid rgb(12, 142, 12);
+  background-color: #44b680;
+}
+
+.reminder {
+  border-top: 8px solid #ffb9b9;
+  border-right: 8px solid rgb(250, 103, 103);
+  border-left: 8px solid rgb(250, 103, 103);
+  border-bottom: 8px solid rgb(213, 49, 49);
+  background-color: #e9927c;
 }

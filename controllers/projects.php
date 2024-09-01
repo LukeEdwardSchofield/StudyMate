@@ -39,14 +39,43 @@ if($_SERVER['REQUEST_METHOD'] === "POST")
         }
     }
 
-    if(isset($_POST["project-id"]))
+    //Edit
+    if(isset($_POST["project-id-edit"]))
+    {
+        if(!Validator::inputValid($_POST["project-edit-input"]))
+        {
+           $errors["project"] = "A project containing no more than 50 characters is required";  
+        }
+
+        if(empty($errors))
+        {
+            $database->query("UPDATE projects SET project = :project WHERE id = :id",
+        [
+            "project" => $_POST["project-edit-input"],
+            "id" => $_POST["project-id-edit"]
+        ]);
+
+        header("Location: /projects");
+        exit();
+        }
+        
+    }
+
+
+    if(isset($_POST["project-id-delete"]))
     {
         $database->query("DELETE FROM projects WHERE id = :id", 
-                          ["id" => $_POST["project-id"]]);
+        [
+            "id" => $_POST["project-id-delete"]
+        ]);
 
-        header("location: /projects");
+        header("Location: /projects");
         exit();
     }
+
+
+
+    
 
         
     
