@@ -8,10 +8,6 @@
 //     "/projects" => "../controllers/projects.php",
 //     "/reminders" => "../controllers/reminders.php"
 // ];
-
-$router->get("/register", "../controllers/registration/create.php");
-$router->post("/register", "../controllers/registration/show.php");
-
 $router->get("/", "../controllers/home.php");
 
 $router->get("/tasks", "../controllers/tasks.php");
